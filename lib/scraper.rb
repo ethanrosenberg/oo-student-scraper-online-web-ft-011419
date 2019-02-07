@@ -31,7 +31,10 @@ class Scraper
         profile_hash[:github] = social_link.attribute("href").text
       elsif social_link.attribute("href").text.include?("linkedin.com")
         profile_hash[:linkedin] = social_link.attribute("href").text
+      else
+        profile_hash[:blog] = social_link.attribute("href").text
       end
+
     end
     profile_hash[:profile_quote] = doc.css(".profile-quote").text.strip
     profile_hash[:bio]= doc.css(".bio-content .description-holder").text.strip
