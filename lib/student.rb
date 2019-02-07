@@ -18,6 +18,7 @@ class Student
 
   def add_student_attributes(attributes_hash)
     attributes_hash.each do |item|
+      binding.pry
       self.send(item.to_s, item)
     end
     
