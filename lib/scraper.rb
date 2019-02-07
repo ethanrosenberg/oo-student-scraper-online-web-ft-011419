@@ -19,8 +19,12 @@ class Scraper
      index_data
   end
 
-  def self.scrape_profile_page(profile_url)
-    
+ def self.scrape_profile_page(profile_url)
+    profile_hash = {}
+    doc = Nokogiri::HTML(open(profile_url))
+     name = doc.css(".profile-name").text
+     profile_hash[name] = "0"
+     profile_hash
   end
 
 end
